@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles/app.css" />
+  </head>
+  <body>
+    <header>
+      <h1>The Unconventional Calculator</h1>
+    </header>
+
+    <section id="calculator">
+      <input type="number" id="input-number" />
+      <div id="calc-actions">
+        <button type="button" id="btn-add">+</button>
+        <button type="button" id="btn-subtract">-</button>
+        <button type="button" id="btn-multiply">*</button>
+        <button type="button" id="btn-divide">/</button>
+      </div>
+    </section>
+    <section id="results">
+      <h2 id="current-calculation">0</h2>
+      <h2>Result: <span id="current-result">0</span></h2>
+    </section>
+
+	<script src="assets/scripts/vendor.js"></script>
+    <script src="assets/scripts/app.js"></script>
+  </body>
+</html>
+
+<!-- head에 script import 하면 스크립트가 완료되기 전까지는 페이지가 렌더링되지 않는다. -->
+<!-- 페이지가 먼저 로드되도록 하려면 닫는 body 태그 위에 import 해주기! -->
+<!-- 브라우저가 스크립트를 실행하기 전에 모든 HTML 코드를 분석하고 렌더링을 끝내도록 하는 것이다. -->
