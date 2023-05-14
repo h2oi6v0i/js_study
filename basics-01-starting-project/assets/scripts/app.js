@@ -6,17 +6,46 @@ function getUserNumberInput() {
     return parseInt( userInput.value );
 }
 
-function add() {
-    // const enteredNumber = parseInt( userInput.value ); 이렇게 쓰는 대신 위에 함수 만들어 주자!
-    const enteredNumber = getUserNumberInput();
-
-    /**
-     * 템플릿 리터럴에서 전달하는 값이 숫자라고 해도 모두 문자열로 변환되기 때문에
-     * calcDescription에서 userInput.value에 parseInt() 빼도 됨!
-     */
-    const calcDescription =  `${ currentResult } + ${ enteredNumber }` 
-    currentResult = currentResult + enteredNumber;
+/** 결과를 출력하는 함수 (3개의 매개변수가 필요함) */
+function createAndWriteOutput( operator, resultBeforeCalc, calcNumber ) {
+    const calcDescription =  `${ resultBeforeCalc } ${operator} ${ calcNumber }` 
     outputResult( currentResult, calcDescription );
 }
 
+/** 덧셈 */
+function add() {
+    // const enteredNumber = parseInt( userInput.value ); 이렇게 쓰는 대신 위에 함수 만들어 주자!
+    const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult;
+    currentResult += enteredNumber; // currentResult = currentResult + enteredNumber;
+    createAndWriteOutput( '+', initialResult, enteredNumber );
+}
+
+/** 뺄셈 */
+function subtract() {
+    const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult;
+    currentResult -= enteredNumber;
+    createAndWriteOutput( '-', initialResult, enteredNumber );
+}
+
+/** 곱셈 */
+function multiply() {
+    const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult;
+    currentResult *= enteredNumber;
+    createAndWriteOutput( '*', initialResult, enteredNumber );
+}
+
+/** 나눗셈 */
+function divide() {
+    const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult;
+    currentResult /= enteredNumber;
+    createAndWriteOutput( '/', initialResult, enteredNumber );
+}
+
 addBtn.addEventListener( 'click', add ); 
+subtractBtn.addEventListener( 'click', subtract ); 
+multiplyBtn.addEventListener( 'click', multiply ); 
+divideBtn.addEventListener( 'click', divide ); 
