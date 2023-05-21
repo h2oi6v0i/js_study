@@ -16,7 +16,7 @@ function adjustHealthBars(maxLife) {
 
 function dealMonsterDamage(damage) {
   const dealtDamage = Math.random() * damage;
-  monsterHealthBar.value = +monsterHealthBar.value - dealtDamage;
+  monsterHealthBar.value = +monsterHealthBar.value - dealtDamage; // +는 monsterHealthBar.value에 저장된 값을 숫자로 변환
   return dealtDamage;
 }
 
